@@ -23,11 +23,11 @@ const CHUNK_OVERLAP = 20;
 
 export const initSettings = async () => {
   // HINT: you can delete the initialization code for unused model providers
-  console.log(`Using '${process.env.MODEL_PROVIDER}' model provider`);
+  console.log(`Using '${process.env.MODEL_PROVIDER ?? "groq"}' model provider`);
 
-  if (!process.env.MODEL || !process.env.EMBEDDING_MODEL) {
-    throw new Error("'MODEL' and 'EMBEDDING_MODEL' env variables must be set.");
-  }
+  // if (!process.env.MODEL || !process.env.EMBEDDING_MODEL) {
+  //   throw new Error("'MODEL' and 'EMBEDDING_MODEL' env variables must be set.");
+  // }
 
   switch (process.env.MODEL_PROVIDER ?? "") {
     case "ollama":
