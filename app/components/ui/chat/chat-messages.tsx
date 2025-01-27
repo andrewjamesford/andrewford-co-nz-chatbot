@@ -8,7 +8,7 @@ import { ChatStarter } from "./chat-starter";
 export default function CustomChatMessages() {
   const { messages } = useChatUI();
   return (
-    <ChatMessages className="shadow-xl rounded-xl">
+    <ChatMessages className="shadow-xl rounded-xl border border-gray-200">
       <ChatMessages.List>
         {messages.map((message, index) => (
           <ChatMessage
