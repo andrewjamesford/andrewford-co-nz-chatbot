@@ -5,13 +5,13 @@ WORKDIR /app
 # Install dependencies
 COPY package.json package-lock.* ./
 RUN npm install
-RUN npm run generate
 
 # Build the application
 COPY . .
 RUN npm run build
+RUN npm run generate
 
 # ====================================
 FROM build as release
 
-CMD ["npm", "run", "start"]
+CMD ["sh", "-c", "npm run generate && npm run start"]
