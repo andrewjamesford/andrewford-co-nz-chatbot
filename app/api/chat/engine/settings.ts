@@ -29,12 +29,12 @@ export const initSettings = async () => {
     throw new Error("'MODEL' and 'EMBEDDING_MODEL' env variables must be set.");
   }
 
-  switch (process.env.MODEL_PROVIDER) {
+  switch (process.env.MODEL_PROVIDER ?? "") {
     case "ollama":
       initOllama();
       break;
-    case "groq":
-      initGroq();
+    case "openai":
+      initOpenAI();
       break;
     case "anthropic":
       initAnthropic();
@@ -49,7 +49,7 @@ export const initSettings = async () => {
       initAzureOpenAI();
       break;
     default:
-      initOpenAI();
+      initGroq();
       break;
   }
   Settings.chunkSize = CHUNK_SIZE;
@@ -139,7 +139,7 @@ function initGroq() {
   };
 
   Settings.llm = new Groq({
-    model: process.env.MODEL!,
+    model: process.env.MODEL ?? "llama3-70b-8192",
   });
 
   Settings.embedModel = new HuggingFaceEmbedding({
