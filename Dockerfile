@@ -5,6 +5,7 @@ WORKDIR /app
 # Install dependencies
 COPY package.json package-lock.* ./
 RUN npm install
+RUN npm run generate
 
 # Build the application
 COPY . .
