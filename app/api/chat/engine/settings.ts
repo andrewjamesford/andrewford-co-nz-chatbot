@@ -143,7 +143,7 @@ function initGroq() {
   });
 
   Settings.embedModel = new HuggingFaceEmbedding({
-    modelType: embedModelMap[process.env.EMBEDDING_MODEL!],
+    modelType: embedModelMap[process.env.EMBEDDING_MODEL ?? "all-MiniLM-L6-v2"],
   });
 }
 
