@@ -6,7 +6,7 @@
 		"format:write": "prettier --ignore-unknown --write .",
 		"dev": "next dev",
 		"build": "next build",
-		"start": "next start",
+		"start": "next start -p 4000",
 		"lint": "next lint",
 		"generate": "tsx app/api/chat/engine/generate.ts"
 	},
