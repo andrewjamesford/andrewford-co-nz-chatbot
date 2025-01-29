@@ -61,3 +61,9 @@ where I teach people how to code. I also write articles and tutorials on my blog
 
 My latest
 [CV is available here](https://andrewford.co.nz/assets/CV-AndrewFord-May-2024-tech-analyst.pdf).
+
+My email is [me@andrewford.co.nz](mailto:me@andrewford.co.nz)
+
+My YouTube channel is [https://www.youtube.com/@CodewithAndrewFord](https://www.youtube.com/@CodewithAndrewFord)
+
+My LinkedIn profile is [https://www.linkedin.com/in/andrewjamesford/](https://www.linkedin.com/in/andrewjamesford/)

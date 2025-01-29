@@ -47,34 +47,40 @@ export default function CustomChatInput() {
       resetUploadedFiles={reset}
       annotations={annotations}
     >
-      <div>
-        {/* Image preview section */}
-        {imageUrl && (
-          <ImagePreview url={imageUrl} onRemove={() => setImageUrl(null)} />
-        )}
-        {/* Document previews section */}
-        {files.length > 0 && (
-          <div className="flex gap-4 w-full overflow-auto py-2">
-            {files.map((file) => (
-              <DocumentInfo
-                key={file.id}
-                document={{ url: file.url, sources: [] }}
-                className="mb-2 mt-2"
-                onRemove={() => removeDoc(file)}
-              />
-            ))}
-          </div>
-        )}
-      </div>
-      <ChatInput.Form>
+      {(imageUrl || files.length > 0) && (
+        <div>
+          {/* Image preview section */}
+          {imageUrl && (
+            <ImagePreview url={imageUrl} onRemove={() => setImageUrl(null)} />
+          )}
+          {/* Document previews section */}
+          {files.length > 0 && (
+            <div className="flex gap-4 w-full overflow-auto py-2">
+              {files.map((file) => (
+                <DocumentInfo
+                  key={file.id}
+                  document={{ url: file.url, sources: [] }}
+                  className="mb-2 mt-2"
+                  onRemove={() => removeDoc(file)}
+                />
+              ))}
+            </div>
+          )}
+        </div>
+        )
+      }
+      <ChatInput.Form className="flex flex-col md:flex-row gap-4">
         <ChatInput.Field />
-        <ChatInput.Upload onUpload={handleUploadFile} />
-        <LlamaCloudSelector />
-        <ChatInput.Submit
-          disabled={
-            isLoading || (!input.trim() && files.length === 0 && !imageUrl)
-          }
-        />
+        <div className="flex flex-row gap-2">
+          <ChatInput.Upload onUpload={handleUploadFile} />
+          <LlamaCloudSelector />
+          <ChatInput.Submit
+          className="w-full"
+            disabled={
+              isLoading || (!input.trim() && files.length === 0 && !imageUrl)
+            }
+          />
+        </div>
       </ChatInput.Form>
     </ChatInput>
   );
