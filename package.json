@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start -p 10000",
     "lint": "next lint",
-    "generate": "tsx app/api/chat/engine/generate.ts"
+    "generate": "tsx app/api/chat/engine/generate.ts",
+    "flush:cache": "rm -rf .cache"
   },
   "dependencies": {
     "@apidevtools/swagger-parser": "^10.1.0",

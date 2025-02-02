@@ -120,13 +120,8 @@ function getNodeUrl(metadata: Metadata) {
     if (isPrivate) {
       return `${process.env.FILESERVER_URL_PREFIX}/output/uploaded/${fileName}`;
     }
-    const filePath = metadata["file_path"];
-    const dataDir = path.resolve(DATA_DIR);
-
-    if (filePath && dataDir) {
-      const relativePath = path.relative(dataDir, filePath);
-      return `${process.env.FILESERVER_URL_PREFIX}/data/${relativePath}`;
-    }
+    // For data files, just use the filename without the full path
+    return `${process.env.FILESERVER_URL_PREFIX}/data/${fileName}`;
   }
   // fallback to URL in metadata (e.g. for websites)
   return metadata["URL"];
