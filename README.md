@@ -9,7 +9,13 @@ The chatbot uses a vector database to store the embeddings of the website's cont
 The chatbot is built using Next.js and LlamaIndex, and it is designed to be easy to use and deploy. It can be used as a standalone application or integrated into other projects.
 
 ## Table of Contents
-
+- [Purpose](#purpose)
+- [Installation](#installation)
+- [Quick Start](#quick-start)
+  - [Using NPM](#using-npm)
+  - [Using Docker](#using-docker)
+- [Learn More](#learn-more)
+- [License](#license)
 
 
 This is a [LlamaIndex](https://www.llamaindex.ai/) project using [Next.js](https://nextjs.org/) bootstrapped with [`create-llama`](https://github.com/run-llama/LlamaIndexTS/tree/main/packages/create-llama).
