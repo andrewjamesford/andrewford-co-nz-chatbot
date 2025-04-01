@@ -20,14 +20,15 @@ import { Ollama } from "llamaindex/llm/ollama";
 
 const CHUNK_SIZE = 512;
 const CHUNK_OVERLAP = 20;
+const CONTEXT_WINDOW = 4096;
 
 export const initSettings = async () => {
   // HINT: you can delete the initialization code for unused model providers
   console.log(`Using '${process.env.MODEL_PROVIDER ?? "groq"}' model provider`);
 
-  // if (!process.env.MODEL || !process.env.EMBEDDING_MODEL) {
-  //   throw new Error("'MODEL' and 'EMBEDDING_MODEL' env variables must be set.");
-  // }
+  if (!process.env.MODEL || !process.env.EMBEDDING_MODEL) {
+    throw new Error("'MODEL' and 'EMBEDDING_MODEL' env variables must be set.");
+  }
 
   switch (process.env.MODEL_PROVIDER ?? "") {
     case "ollama":
@@ -54,6 +55,9 @@ export const initSettings = async () => {
   }
   Settings.chunkSize = CHUNK_SIZE;
   Settings.chunkOverlap = CHUNK_OVERLAP;
+  Settings.promptHelper.contextWindow = CONTEXT_WINDOW;
+
+  console.log('Settings=',Settings);
 };
 
 function initOpenAI() {
